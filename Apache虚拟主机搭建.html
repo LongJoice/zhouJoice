@@ -1,0 +1,17 @@
+① 找到Apache配置文件httpd.conf，让Apache服务器加载配置虚拟主机的文件：
+#Include confextrahttpd-vhosts.conf，将前面的注释去掉
+② 修改本机CWindowsSystem32driversetchost文件把不同的主机名指向相对应的ip
+例如：  ip  域名   127.0.0.1   www.baidu.com
+ 在httpd-vhosts.conf的末尾写上：
+#配置虚拟主机成功
+VirtualHost  80
+   ServerName	域名
+   documentRoot  网站的根目录路径
+VirtualHost
+Directory 网站的根目录路径
+     Options Indexes FollowSymLinks
+     AllowOverride None
+     Order allow,deny
+     Allow from all
+Directory
+④ 重启服务器
